@@ -1,0 +1,154 @@
+:root {
+  --primary: #00f0ff;
+  --secondary: #0a0a0a;
+  --text: #ffffff;
+  --glass-bg: rgba(20, 20, 25, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--secondary);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: #000;
+}
+
+#bg-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8; 
+}
+
+.story-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  /* Ensure there's plenty of scroll space for video scrubbing */
+  padding-bottom: 20vh;
+}
+
+.step {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10vw;
+  position: relative;
+}
+
+.step.hero {
+  justify-content: center;
+  text-align: center;
+  height: 120vh; /* A bit longer for the intro */
+}
+
+.step.align-left {
+  justify-content: flex-start;
+}
+
+.step.align-right {
+  justify-content: flex-end;
+}
+
+.step.cta-step {
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  cursor: pointer;
+}
+
+.hero .glass-panel {
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateZ(30px);
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  transform: translateZ(20px);
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  transform: translateZ(10px);
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+  transform: translateZ(20px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateZ(20px); }
+  40% { transform: translateY(-10px) translateZ(20px); }
+  60% { transform: translateY(-5px) translateZ(20px); }
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  color: var(--secondary);
+  background: var(--primary);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateZ(30px);
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  transform: translateZ(30px) scale(1.05);
+}
